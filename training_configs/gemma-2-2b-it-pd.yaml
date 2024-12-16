@@ -1,0 +1,59 @@
+# Model arguments
+model_name_or_path: ../huggingface/google/gemma-2-2b-it
+torch_dtype: null
+attn_implementation: eager
+
+# Data training arguments
+dataset_mixer:
+  data/generated/ultrafeedback/gemma-2b-it/pkd-dataset-teacher-gemma-n4: 1.0
+dataset_splits:
+- train
+- test
+local_dataset: true
+preprocessing_num_workers: 12
+dataset_num_proc: 12
+
+# SimPOTrainer arguments
+bf16: true
+beta: 10.0
+alpha: 0.0
+do_eval: true
+eval_strategy: steps
+eval_steps: 100
+loss_type: pd
+gradient_accumulation_steps: 64
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: False
+torch_empty_cache_steps: null
+hub_model_id: simpo-exps
+learning_rate: 8.0e-7
+log_level: info
+logging_steps: 5
+lr_scheduler_type: cosine
+max_length: 2048
+max_prompt_length: 1800
+num_train_epochs: 1
+optim: adamw_torch
+output_dir: outputs/gemma-2-2b-it-pd
+run_name: gemma-2-2b-it-pd
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+push_to_hub: false
+save_strategy: "steps"
+save_steps: 100
+report_to:
+- wandb
+save_total_limit: 20
+seed: 42
+warmup_ratio: 0.1
+
+# PEFT arguments
+# use_peft: True
+# lora_r: 8
+# lora_alpha: 32
+# lora_dropout: 0.1
+# lora_target_modules: all-linear
+# lora_modules_to_save: null
+
+# debug: tpu_metrics_debug
