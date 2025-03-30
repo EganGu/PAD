@@ -39,7 +39,7 @@ We follow the official implementation for evaluation on AlpacaEval 2, Arena-Hard
 ## Training Report
 
 ### Overview
-This repository contains training logs and comparative analysis of three preference alignment methods: SimPO, DPO, and PAD. We document the training process, implementation details, and performance metrics for each approach.
+This part contains training logs and comparative analysis of three preference alignment methods: SimPO, DPO, and PAD. We document the training process, implementation details, and performance metrics for each approach.
 
 ### Implementations
 - **DPO**: Based on the implementation from [TRL](https://github.com/huggingface/trl)
